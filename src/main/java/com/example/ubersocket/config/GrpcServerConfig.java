@@ -2,7 +2,7 @@ package com.example.ubersocket.config;
 
 import org.springframework.context.annotation.Configuration;
 
-import com.example.ubersocket.services.RideNotificationServiceImpl;
+import com.example.Uber.RideNotificationServiceGrpc;
 
 import lombok.RequiredArgsConstructor;
 
@@ -21,7 +21,7 @@ public class GrpcServerConfig {
     @Value("${grpc.server.port:9091}")
     private int grpcServerPort;
 
-    private final RideNotificationServiceImpl rideNotificationServiceImpl;
+    private final RideNotificationServiceGrpc.RideNotificationServiceImplBase rideNotificationServiceImpl;
     private Server server;
     
     @PostConstruct

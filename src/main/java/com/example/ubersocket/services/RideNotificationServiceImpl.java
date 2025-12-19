@@ -2,9 +2,9 @@ package com.example.ubersocket.services;
 
 import org.springframework.stereotype.Service;
 
-import com.example.ubersocket.RideNotificationRequest;
-import com.example.ubersocket.RideNotificationResponse;
-import com.example.ubersocket.RideNotificationServiceGrpc;
+import com.example.Uber.RideNotificationRequest;
+import com.example.Uber.RideNotificationResponse;
+import com.example.Uber.RideNotificationServiceGrpc;
 import com.example.ubersocket.dtos.RideRequestDTO;
 
 import io.grpc.stub.StreamObserver;

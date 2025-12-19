@@ -3,9 +3,9 @@ package com.example.ubersocket.client;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import com.example.ubersocket.RideServiceGrpc;
-import com.example.ubersocket.RideAcceptanceRequest;
-import com.example.ubersocket.RideAcceptanceResponse;
+import com.example.Uber.RideServiceGrpc;
+import com.example.Uber.RideAcceptanceRequest;
+import com.example.Uber.RideAcceptanceResponse;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
@@ -14,11 +14,11 @@ import jakarta.annotation.PostConstruct;
 @Component
 public class GrpcClient {
     
-    @Value("${grpc.server.port:9090}")
-    private int grpcServerPort;
+    @Value("${grpc.client.port:9090}")
+    private int grpcClientPort;
 
-    @Value("${grpc.server.host:localhost}")
-    private String grpcServerHost;
+    @Value("${grpc.client.host:localhost}")
+    private String grpcClientHost;
 
     private ManagedChannel channel;
     private RideServiceGrpc.RideServiceBlockingStub rideServiceStub;
@@ -26,7 +26,7 @@ public class GrpcClient {
 
     @PostConstruct
     public void init() {
-        channel = ManagedChannelBuilder.forAddress(grpcServerHost, grpcServerPort)
+        channel = ManagedChannelBuilder.forAddress(grpcClientHost, grpcClientPort)
         .usePlaintext()
         .build();
 
